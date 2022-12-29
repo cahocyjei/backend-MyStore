@@ -4,7 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "nodemon index.js",
+    "start": "node index.js",
+    "lint": "eslint"
   },
   "repository": {
     "type": "git",
@@ -16,5 +18,22 @@
   "bugs": {
     "url": "https://github.com/cahocyjei/backend-MyStore/issues"
   },
-  "homepage": "https://github.com/cahocyjei/backend-MyStore#readme"
+  "homepage": "https://github.com/cahocyjei/backend-MyStore#readme",
+  "devDependencies": {
+    "eslint": "^8.30.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "faker": "^5.5.3",
+    "i": "^0.3.7",
+    "nodemon": "^2.0.20",
+    "npm": "^9.2.0",
+    "prettier": "^2.8.1"
+  },
+  "dependencies": {
+    "@hapi/boom": "^10.0.0",
+    "express": "^4.18.2",
+    "express-joi-validation": "^5.0.1",
+    "joi": "^17.7.0",
+    "mysql": "^2.18.1"
+  }
 }
