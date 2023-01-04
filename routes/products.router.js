@@ -7,9 +7,20 @@ const service = new productService();
 
 router.get("/", async(req,res,next)=>{
     let { size } = req.query;
-    let limit = size || service.bDatos.length;
+    let limit = size;
+    const products = await service.get();
+   
     try {
-      res.status(200).json(await service.get(limit));  
+      let data = [];
+      if (limit) {
+         for (let i = 0; i < limit; i++) {
+          data.push(products[i]);
+    }
+        res.status(200).json(data); 
+      }else{
+        res.status(200).json(products);
+      }
+         
     } catch (error) {
         next(error);
     }
@@ -29,7 +40,7 @@ router.post("/created",validatorHandler(schemaCreateProduct,'body'), async(req,r
     const body = req.body;
     try {
       const product = await service.created(body);
-      res.status(202).json(product)
+      res.status(202).json(product);
     } catch (error) {
       next(err);
     }

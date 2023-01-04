@@ -4,7 +4,7 @@ const Product = require('../models/product');
 const product = new Product();
 product.id = joi.string().uuid();
 product.name = joi.string().pattern(new RegExp(/^[a-zA-Z0-9\-]{8,25}$/)),
-product.price = joi.string().pattern(new RegExp(/^[\d\.{2,4}] [COP]$/));
+product.price = joi.number().integer(100,10);
 product.category = joi.string();
 product.image = joi.string().uri();
 
